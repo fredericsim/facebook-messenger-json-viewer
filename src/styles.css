@@ -380,7 +380,7 @@ button:disabled {
   color: var(--muted);
 }
 
-.evidence-document {
+.conversation-document {
   max-width: 980px;
   margin: 0 auto;
   padding: 42px;
@@ -482,7 +482,7 @@ button:disabled {
   border-bottom: 1px solid var(--border);
 }
 
-.packet-section {
+.report-section {
   padding-top: 36px;
   border-top: 1px solid var(--border);
 }
@@ -692,7 +692,7 @@ button:disabled {
     border-bottom: 1px solid var(--border);
   }
 
-  .evidence-document {
+  .conversation-document {
     padding: 24px;
   }
 }
@@ -728,7 +728,7 @@ button:disabled {
     padding: 0;
   }
 
-  .evidence-document {
+  .conversation-document {
     max-width: none;
     padding: 0;
     border: 0;
@@ -764,7 +764,7 @@ button:disabled {
     page-break-after: always;
   }
 
-  .packet-section {
+  .report-section {
     break-before: auto;
   }
 

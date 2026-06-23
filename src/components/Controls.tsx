@@ -76,7 +76,7 @@ export function Controls({
   const hugeMediaSet = mediaRefs.length > 5000;
 
   return (
-    <aside className="app-sidebar no-print" aria-label="Evidence viewer controls">
+    <aside className="app-sidebar no-print" aria-label="Messenger JSON viewer controls">
       <section className="panel">
         <div className="panel-title">
           <Upload size={18} aria-hidden="true" />
@@ -186,7 +186,7 @@ export function Controls({
       <section className="panel">
         <div className="panel-title">
           <Hash size={18} aria-hidden="true" />
-          <h2>Packet Summary</h2>
+          <h2>Conversation Summary</h2>
         </div>
         <dl className="summary-list">
           <div>

@@ -1,10 +1,10 @@
-# Messenger Evidence Viewer
+# Messenger JSON Viewer
 
 A private, local-only viewer and exporter for Facebook Messenger JSON exports, including end-to-end encrypted conversation JSON exports.
 
 Planned GitHub Pages app: https://fredericsim.github.io/facebook-messenger-json-viewer/
 
-This tool turns one or more Messenger conversation JSON files and their matching media folder into a readable evidence review packet that can be printed or saved as PDF from your browser. It supports the newer end-to-end encrypted export JSON shape, where conversations commonly use fields such as `threadName`, `senderName`, `text`, `timestamp`, and `media`.
+This tool turns one or more Messenger conversation JSON files and their matching media folder into a readable conversation view that can be printed or saved as PDF from your browser. It supports the newer end-to-end encrypted export JSON shape, where conversations commonly use fields such as `threadName`, `senderName`, `text`, `timestamp`, and `media`.
 
 ## Privacy
 
@@ -16,9 +16,9 @@ This tool turns one or more Messenger conversation JSON files and their matching
 
 You should still preserve the original Messenger JSON and media files unchanged. A generated PDF or HTML view is only a rendered copy.
 
-## Legal Notice
+## Notice
 
-This project is not legal advice and does not guarantee admissibility in court. It is intended to help create a private, traceable, readable packet from an export while preserving original files.
+This project is a conversation viewer. It is intended to help create a private, traceable, readable view from an export while preserving original files.
 
 This project is not affiliated with, endorsed by, or sponsored by Meta, Facebook, or Messenger.
 
@@ -31,9 +31,9 @@ This project is not affiliated with, endorsed by, or sponsored by Meta, Facebook
 - Show missing media placeholders with the original `uri`.
 - Filter by sender, date range, and keyword.
 - Toggle timestamps, sender names, reactions, media previews, and mojibake repair.
-- Print or save a court-presentable PDF packet from the browser.
+- Print or save a readable PDF report from the browser.
 - Include a cover page with participants, date range, message count, media summary, source files, generation date/time, and timezone.
-- Include an evidence integrity section with SHA-256 hashes.
+- Include a file integrity section with SHA-256 hashes.
 - Map unrecognized JSON formats with a no-code field mapping panel.
 
 ## How To Use
@@ -46,7 +46,7 @@ This project is not affiliated with, endorsed by, or sponsored by Meta, Facebook
 6. Review the rendered conversation.
 7. Use sender, keyword, and date filters if needed.
 8. Use display toggles to show or hide timestamps, sender names, reactions, media previews, or mojibake repair.
-9. Check the packet summary for missing media.
+9. Check the conversation summary for missing media.
 10. Click **Print or save PDF**, then use your browser print dialog to save as PDF.
 
 The PDF should be treated as a rendered copy. Keep the original Messenger export files separately and unchanged.
@@ -76,7 +76,7 @@ The panel lets you choose fields from dropdowns:
 - Media URI
 - Reactions
 
-The app shows a small preview with message count, participant count, media reference count, and sample rows. Once the required fields are selected, the mapped messages are rendered in the packet like a built-in format.
+The app shows a small preview with message count, participant count, media reference count, and sample rows. Once the required fields are selected, the mapped messages are rendered in the report like a built-in format.
 
 Mapping profiles can be exported and imported as JSON. A mapping profile contains only field names such as `messages`, `senderName`, or `media.uri`; it should not contain private message text or media.
 
@@ -116,7 +116,7 @@ The production build outputs a single self-contained file:
 dist/index.html
 ```
 
-After running `npm run build`, you can open `dist/index.html` directly in a desktop browser, or serve it from any static file host. Do not publish or commit real Messenger exports or generated PDFs.
+After running `npm run build`, serve the build with `npm run preview` or from any static file host. Do not publish or commit real Messenger exports or generated PDFs.
 
 ## Repository Safety
 

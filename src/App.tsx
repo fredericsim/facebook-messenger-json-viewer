@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Controls, type DisplayToggles } from "./components/Controls";
-import { EvidencePacket } from "./components/EvidencePacket";
+import { ConversationReport } from "./components/ConversationReport";
 import { filterMessages, getSenders, type MessageFilters, mergeParsedExports } from "./lib/conversation";
 import {
   createEmptyMappingProfile,
@@ -223,7 +223,7 @@ export default function App() {
     setGeneratedAt(new Date());
   }
 
-  function printPacket() {
+  function printReport() {
     setGeneratedAt(new Date());
     window.setTimeout(() => window.print(), 50);
   }
@@ -266,8 +266,8 @@ export default function App() {
     <div className="app-shell">
       <header className="app-topbar no-print">
         <div>
-          <h1>Messenger Evidence Viewer</h1>
-          <p>Private local-only JSON viewer, media resolver, PDF printer, and SHA-256 integrity view.</p>
+          <h1>Messenger JSON Viewer</h1>
+          <p>Private local-only conversation viewer, media resolver, PDF printer, and SHA-256 file hash view.</p>
         </div>
       </header>
 
@@ -292,10 +292,10 @@ export default function App() {
         onImportMappingProfile={importMappingProfile}
         onFilters={setFilters}
         onToggles={setToggles}
-        onPrint={printPacket}
+        onPrint={printReport}
       />
 
-      <EvidencePacket
+      <ConversationReport
         conversation={conversation}
         messages={filteredMessages}
         sourceHashes={sourceHashes}

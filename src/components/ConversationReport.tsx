@@ -3,7 +3,7 @@ import type { HashRecord } from "../lib/hash";
 import type { MediaResolution, MediaStats } from "../lib/media";
 import type { MergedConversation, NormalizedMessage } from "../types/messenger";
 
-interface EvidencePacketProps {
+interface ConversationReportProps {
   conversation: MergedConversation | null;
   messages: NormalizedMessage[];
   sourceHashes: HashRecord[];
@@ -16,7 +16,7 @@ interface EvidencePacketProps {
   timezone: string;
 }
 
-export function EvidencePacket({
+export function ConversationReport({
   conversation,
   messages,
   sourceHashes,
@@ -27,15 +27,15 @@ export function EvidencePacket({
   toggles,
   generatedAt,
   timezone,
-}: EvidencePacketProps) {
+}: ConversationReportProps) {
   if (!conversation) {
     return (
-      <main className="document-shell" aria-label="Evidence packet preview">
+      <main className="document-shell" aria-label="Conversation report preview">
         <div className="empty-state">
           <h2>Select Messenger JSON files to begin</h2>
           <p>
             Choose one or more Messenger conversation JSON files, including end-to-end encrypted export files, then select the matching media folder.
-            The rendered packet will appear here and can be
+            The rendered conversation report will appear here and can be
             printed to PDF from the browser.
           </p>
         </div>
@@ -47,20 +47,20 @@ export function EvidencePacket({
   const parseWarnings = conversation.warnings;
 
   return (
-    <main className="document-shell" aria-label="Evidence packet preview">
+    <main className="document-shell" aria-label="Conversation report preview">
       <div className="print-header" aria-hidden="true">
-        {conversation.title} - Rendered Messenger evidence packet
+        {conversation.title} - Rendered Messenger conversation report
       </div>
       <div className="print-footer" aria-hidden="true">
         Generated {formatDateTime(generatedAt)} {timezone}.
       </div>
 
-      <article className="evidence-document">
+      <article className="conversation-document">
         <CoverPage conversation={conversation} sourceHashes={sourceHashes} mediaStats={mediaStats} generatedAt={generatedAt} timezone={timezone} />
 
         {parseWarnings.length > 0 ? <ParseWarnings warnings={parseWarnings} /> : null}
 
-        <section className="packet-section chat-section">
+        <section className="report-section chat-section">
           <div className="section-heading">
             <h2>Rendered Conversation</h2>
             <p>
@@ -117,7 +117,7 @@ function CoverPage({
 }) {
   return (
     <section className="cover-page">
-      <p className="eyebrow">Local rendered packet</p>
+      <p className="eyebrow">Local rendered conversation report</p>
       <h1>{conversation.title}</h1>
 
       <dl className="cover-grid">
@@ -173,7 +173,7 @@ function ParseWarnings({ warnings }: { warnings: string[] }) {
   const hiddenCount = warnings.length - visibleWarnings.length;
 
   return (
-    <section className="packet-section parse-warnings-section">
+    <section className="report-section parse-warnings-section">
       <div className="section-heading">
         <h2>Parse Warnings</h2>
         <p>{warnings.length} warning{warnings.length === 1 ? "" : "s"} found while reading the selected JSON files.</p>
@@ -335,9 +335,9 @@ function IntegritySection({
   const ambiguous = Array.from(mediaResolutions.values()).filter((resolution) => resolution.status === "ambiguous");
 
   return (
-    <section className="packet-section integrity-section">
+    <section className="report-section integrity-section">
       <div className="section-heading">
-        <h2>Evidence Integrity</h2>
+        <h2>File Integrity</h2>
         <p>
           Generated {formatDateTime(generatedAt)} using timezone {timezone}. Original files should remain preserved separately from this rendered
           copy.

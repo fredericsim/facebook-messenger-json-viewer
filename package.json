@@ -1,8 +1,8 @@
 {
-  "name": "messenger-evidence-viewer",
+  "name": "messenger-json-viewer",
   "private": true,
   "version": "0.1.0",
-  "description": "Local-only Messenger JSON evidence viewer/exporter.",
+  "description": "Local-only Facebook Messenger JSON conversation viewer.",
   "homepage": "https://fredericsim.github.io/facebook-messenger-json-viewer/",
   "type": "module",
   "scripts": {
